@@ -1139,8 +1139,8 @@ static bool parse_certificate(private_openssl_x509_t *this)
 		return FALSE;
 	}
 
-	this->notBefore = openssl_asn1_to_time(X509_get0_notBefore(this->x509));
-	this->notAfter = openssl_asn1_to_time(X509_get0_notAfter(this->x509));
+	this->notBefore = openssl_asn1_to_time(X509_getm_notBefore(this->x509));
+	this->notAfter = openssl_asn1_to_time(X509_getm_notAfter(this->x509));
 
 	/* while X509_ALGOR_cmp() is declared in the headers of older OpenSSL
 	 * versions, at least on Ubuntu 14.04 it is not actually defined */
